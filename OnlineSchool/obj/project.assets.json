@@ -465,11 +465,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asror\\OneDrive\\Desktop\\MVC Project\\OnlineSchool\\Api.csproj",
+      "projectUniqueName": "C:\\Users\\Asror\\source\\repos\\Asror020\\Online-School\\OnlineSchool\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "C:\\Users\\Asror\\OneDrive\\Desktop\\MVC Project\\OnlineSchool\\Api.csproj",
+      "projectPath": "C:\\Users\\Asror\\source\\repos\\Asror020\\Online-School\\OnlineSchool\\Api.csproj",
       "packagesPath": "C:\\Users\\Asror\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asror\\OneDrive\\Desktop\\MVC Project\\OnlineSchool\\obj\\",
+      "outputPath": "C:\\Users\\Asror\\source\\repos\\Asror020\\Online-School\\OnlineSchool\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asror\\AppData\\Roaming\\NuGet\\NuGet.Config",
