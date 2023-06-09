@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Api.Dtos;
+using AutoMapper;
 using Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,10 @@ namespace Helpers;
 /// </summary>
 public class MappingProfile : Profile
 {
-
     public MappingProfile()
 	{
-        CreateMap<User, User>();
+        CreateMap<User, UserDto>().ReverseMap();
+        CreateMap<Student, StudentDto>().ReverseMap();
+        CreateMap<Professor, ProfessorDto>().ReverseMap();
     }
-
 }

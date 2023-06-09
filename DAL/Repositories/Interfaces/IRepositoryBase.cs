@@ -10,8 +10,6 @@ public interface IRepositoryBase<TEntity>
 
     IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> expression);
 
-    IQueryable<TEntity> GetWithInclude(Expression<Func<TEntity, bool>> get, Expression<Func<TEntity, bool>> include);
-
     void Create(TEntity entity);
 
     void Update(TEntity entity);

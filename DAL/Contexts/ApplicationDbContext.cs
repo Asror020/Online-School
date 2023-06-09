@@ -15,5 +15,9 @@ namespace DAL.Contexts
         }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Student> Students { get; set; }
+
+        public DbSet<Professor> Professors { get; set;}
     }
 }

@@ -34,6 +34,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 using var scope = app.Services.CreateScope();
-scope.ServiceProvider.AddSeedUsers();
+scope.ServiceProvider.AddSeedData();
 
 app.Run();

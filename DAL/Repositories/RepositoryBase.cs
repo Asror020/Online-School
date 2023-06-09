@@ -23,11 +23,6 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
         return Context.Set<TEntity>().Where(expression);
     }
 
-    public IQueryable<TEntity> GetWithInclude(Expression<Func<TEntity, bool>> get, Expression<Func<TEntity, bool>> include)
-    {
-        return Context.Set<TEntity>().Where(get).Include(include);
-    }
-
     public void Create(TEntity entity)
     {
         Context.Set<TEntity>().Add(entity);

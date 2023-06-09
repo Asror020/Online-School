@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Api.Dtos;
+using AutoMapper;
 using BLL.Services.Interfaces;
 using Core.Entities;
 using DAL.Repositories.Interfaces;
@@ -23,21 +24,21 @@ namespace Api.Controllers
         {
             var user = await _userService.GetByIdAsync(id);
 
-            return user != null ? Ok(user) : NotFound();
+            return user != null ? Ok(Mapper.Map<UserDto>(user)) : NotFound();
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync(User user)
+        public async Task<IActionResult> CreateAsync(UserDto user)
         {
-            var createdUser = await _userService.CreateAsync(user);
+            var createdUser = await _userService.CreateAsync(Mapper.Map<User>(user));
 
-            return createdUser != null ? Ok(createdUser) : BadRequest();
+            return createdUser != null ? Ok(Mapper.Map<UserDto>(createdUser)) : BadRequest();
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateAsync(int id, User entity)
+        public async Task<IActionResult> UpdateAsync(int id, UserDto entity)
         {
-            var result = await _userService.UpdateAsync(id, entity);
+            var result = await _userService.UpdateAsync(id, Mapper.Map<User>(entity));
 
             return result ? NoContent() : BadRequest();
         }

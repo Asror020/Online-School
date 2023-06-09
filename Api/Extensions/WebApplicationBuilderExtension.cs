@@ -18,6 +18,14 @@ namespace Api.Extensions
             builder.Services.AddScoped<IBaseService<User>, BaseService<User, IRepositoryBase<User>>>();
             builder.Services.AddScoped<IUserService, UserService>();
 
+            builder.Services.AddScoped<IRepositoryBase<Student>, RepositoryBase<Student>>();
+            builder.Services.AddScoped<IBaseService<Student>, BaseService<Student, IRepositoryBase<Student>>>();
+            builder.Services.AddScoped<IStudentService, StudentService>();
+
+            builder.Services.AddScoped<IRepositoryBase<Professor>, RepositoryBase<Professor>>();
+            builder.Services.AddScoped<IBaseService<Professor>, BaseService<Professor, IRepositoryBase<Professor>>>();
+            builder.Services.AddScoped<IProfessorService, ProfessorService>();
+
             return builder;
         }
 
