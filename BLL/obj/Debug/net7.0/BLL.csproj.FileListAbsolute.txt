@@ -1,0 +1,17 @@
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\bin\Debug\net7.0\BLL.deps.json
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\bin\Debug\net7.0\BLL.dll
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\bin\Debug\net7.0\BLL.pdb
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\bin\Debug\net7.0\Core.dll
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\bin\Debug\net7.0\DAL.dll
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\bin\Debug\net7.0\DAL.pdb
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\bin\Debug\net7.0\Core.pdb
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\BLL.csproj.AssemblyReference.cache
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\BLL.AssemblyInfoInputs.cache
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\BLL.AssemblyInfo.cs
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\BLL.csproj.CopyComplete
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\BLL.dll
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\refint\BLL.dll
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\BLL.pdb
+C:\Users\Asror\source\repos\Asror020\Online-School\BLL\obj\Debug\net7.0\ref\BLL.dll
