@@ -25,6 +25,10 @@ namespace BLL.Services
 
             return await Task.Run(() => EntityRepository.Get(x => x.Id == id).Any());
         }
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
+        {
+            return await Task.Run(EntityRepository.Context.Set<T>);
+        }
 
         public virtual async Task<T?> GetByIdAsync(int id)
         {

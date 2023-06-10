@@ -26,6 +26,12 @@ namespace Api.Extensions
             builder.Services.AddScoped<IBaseService<Professor>, BaseService<Professor, IRepositoryBase<Professor>>>();
             builder.Services.AddScoped<IProfessorService, ProfessorService>();
 
+            builder.Services.AddScoped<IRepositoryBase<Subject>, RepositoryBase<Subject>>();
+            builder.Services.AddScoped<IBaseService<Subject>, BaseService<Subject, IRepositoryBase<Subject>>>();
+
+            builder.Services.AddScoped<IRepositoryBase<Grade>, RepositoryBase<Grade>>();
+            builder.Services.AddScoped<IBaseService<Grade>, BaseService<Grade, IRepositoryBase<Grade>>>();
+
             return builder;
         }
 

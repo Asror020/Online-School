@@ -13,6 +13,8 @@ namespace Api.SeedData
             AddSeedUsers(dbContext);
             AddSeedStudents(dbContext);
             AddSeedProfessors(dbContext);
+            AddSeedSubjects(dbContext);
+            AddSeedGrades(dbContext);
         }
 
         private static void AddSeedUsers(ApplicationDbContext dbContext)
@@ -44,7 +46,7 @@ namespace Api.SeedData
             dbContext.SaveChanges();
         }
 
-        private static void AddSeedStudents( ApplicationDbContext dbContext)
+        private static void AddSeedStudents(ApplicationDbContext dbContext)
         {
             if (dbContext.Students.Any()) return;
 
@@ -83,7 +85,7 @@ namespace Api.SeedData
             dbContext.SaveChanges();
         }
 
-        private static void AddSeedProfessors( ApplicationDbContext dbContext)
+        private static void AddSeedProfessors(ApplicationDbContext dbContext)
         {
             if (dbContext.Professors.Any()) return;
 
@@ -91,7 +93,6 @@ namespace Api.SeedData
             {
                 new Professor
                 {
-                    UserId = 3,
                     User = new User
                     {
                         FirstName = "Bobur",
@@ -104,7 +105,6 @@ namespace Api.SeedData
                 },
                 new Professor
                 {
-                    UserId = 4,
                     User = new User
                     {
                         FirstName = "Anora",
@@ -114,6 +114,64 @@ namespace Api.SeedData
                         Email = "anora@gmail.com",
                         Password = "Pa$$w0rd"
                     }
+                }
+            });
+
+            dbContext.SaveChanges();
+        }
+
+        public static void AddSeedSubjects(ApplicationDbContext dbContext)
+        {
+            if(dbContext.Subjects.Any()) return;
+
+            dbContext.Subjects.AddRange(new[]
+            {
+                new Subject
+                {
+                    Name = "Math",
+                    ProfessorId = 1,
+                    StudentsList = "1,2,3,4,5,6,7"
+                },
+                new Subject
+                {
+                    Name = "English",
+                    ProfessorId = 2,
+                    StudentsList = "1,2,3,4,5,6,7"
+                }
+            });
+
+            dbContext.SaveChanges();
+        }
+
+        public static void AddSeedGrades(ApplicationDbContext dbContext)
+        {
+            if(dbContext.Grades.Any()) return;
+
+            dbContext.Grades.AddRange(new[]
+            {
+                new Grade
+                {
+                    SubjectName = "Math",
+                    StudentId = 1,
+                    Score = 98,
+                },
+                new Grade
+                {
+                    SubjectName = "English",
+                    StudentId = 1,
+                    Score = 78
+                },
+                new Grade
+                {
+                    SubjectName = "Math",
+                    StudentId = 2,
+                    Score = 90,
+                },
+                new Grade
+                {
+                    SubjectName = "English",
+                    StudentId = 2,
+                    Score = 87
                 }
             });
 

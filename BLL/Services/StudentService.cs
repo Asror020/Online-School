@@ -12,8 +12,10 @@ namespace BLL.Services
 {
     public class StudentService : BaseService<Student, IRepositoryBase<Student>>, IStudentService
     {
-        public StudentService(IRepositoryBase<Student> entityRepository) : base(entityRepository)
+        private readonly IRepositoryBase<User> _userRepo;
+        public StudentService(IRepositoryBase<Student> entityRepository, IRepositoryBase<User> userRepo) : base(entityRepository)
         {
+            _userRepo = userRepo;
         }
 
         public override async Task<Student?> GetByIdAsync(int id)
@@ -49,6 +51,8 @@ namespace BLL.Services
         public override async Task<bool> DeleteByIdAsync(int id)
         {
             var entity = await GetByIdAsync(id) ?? throw new EntryPointNotFoundException();
+
+            _userRepo.Delete(entity.User);
             
             return await base.DeleteAsync(entity);
         }

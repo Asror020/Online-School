@@ -9,6 +9,7 @@ namespace BLL.Services.Interfaces
 {
     public interface IBaseService<T> where T : class, IEntity
     {
+        Task<IEnumerable<T>> GetAllAsync();
         Task<T?> GetByIdAsync(int id);
         Task<T?> CreateAsync(T entity);
         Task<bool> UpdateAsync(int id ,T entity);

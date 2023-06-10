@@ -12,8 +12,10 @@ namespace BLL.Services
 {
     public class ProfessorService : BaseService<Professor, IRepositoryBase<Professor>>, IProfessorService
     {
-        public ProfessorService(IRepositoryBase<Professor> entityRepository) : base(entityRepository)
+        private readonly IRepositoryBase<User> _userRepo;
+        public ProfessorService(IRepositoryBase<Professor> entityRepository, IRepositoryBase<User> userRepo) : base(entityRepository)
         {
+            _userRepo = userRepo;
         }
 
         public override async Task<Professor?> GetByIdAsync(int id)
@@ -22,6 +24,11 @@ namespace BLL.Services
             {
                 return EntityRepository.Context.Professors.Where(x => x.Id == id).Include(x => x.User).FirstOrDefault();
             });
+        }
+
+        public override Task<Professor?> CreateAsync(Professor entity)
+        {
+            return base.CreateAsync(entity);
         }
 
         public override async Task<bool> UpdateAsync(int id, Professor entity)
@@ -48,6 +55,9 @@ namespace BLL.Services
         public override async Task<bool> DeleteByIdAsync(int id)
         {
             var entity = await GetByIdAsync(id) ?? throw new EntryPointNotFoundException();
+
+            _userRepo.Delete(entity.User);
+
             return await base.DeleteAsync(entity);
         }
     }
