@@ -4,19 +4,20 @@ using BLL.Services.Interfaces;
 using Core.Entities;
 using DAL.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections;
 
 namespace Api.Controllers
 {
-    public class GradeController : BaseController
+    public class GradesController : BaseController
     {
         private readonly IRepositoryBase<Grade> _gradeRepo;
         private readonly IBaseService<Grade> _gradeService;
         private readonly IStudentService _studentService;
         private readonly IRepositoryBase<Subject> _subjectRepo;
 
-        public GradeController(
+        public GradesController(
             IWebHostEnvironment hostEnvironment,
-            ILogger<GradeController> logger,
+            ILogger<GradesController> logger,
             IMapper mapper,
             IBaseService<Grade> gradeService,
             IRepositoryBase<Grade> gradeRepo,
@@ -30,11 +31,19 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _gradeService.GetAllAsync();
+
+            return Ok(Mapper.Map<IEnumerable<GradeDto>>(result));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
             var result = await _gradeService.GetByIdAsync(id);
 
-            return result != null ? Ok(result) : NotFound();
+            return result != null ? Ok(Mapper.Map<GradeDto>(result)) : NotFound();
         }
 
         [HttpPost]
@@ -42,10 +51,10 @@ namespace Api.Controllers
         {
             var result = await _gradeService.CreateAsync(Mapper.Map<Grade>(entity));
 
-            return result != null ? Ok(result) : BadRequest();
+            return result != null ? Ok(Mapper.Map<GradeDto>(result)) : BadRequest();
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, GradeDto entity)
         {
             var grade = await _gradeService.GetByIdAsync(id);
@@ -57,7 +66,7 @@ namespace Api.Controllers
             return result ? NoContent() : BadRequest();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _gradeService.DeleteByIdAsync(id);

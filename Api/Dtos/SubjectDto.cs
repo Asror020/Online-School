@@ -11,6 +11,9 @@ namespace Api.Dtos
 
         [Required]
         public int ProfessorId { get; set; }
+
+        [Required]
+        public string ProfessorFullName { get; set; }
         public string StudentsList { get; set; } = string.Empty;
     }
 }

@@ -13,5 +13,6 @@ namespace Core.Entities
         public byte Score { get; set; }
         public string SubjectName { get; set; }
         public int StudentId { get; set; }
+        public string StudentFullName { get; set; }
     }
 }

@@ -24,6 +24,14 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _studentService.GetAllAsync();
+
+            return Ok(Mapper.Map<IEnumerable<Student>>(result));
+        }
+
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var student = await _studentService.GetByIdAsync(id);
@@ -39,7 +47,7 @@ namespace Api.Controllers
             return result == null ? BadRequest() : Ok(Mapper.Map<StudentDto>(result)); 
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, StudentDto entity)
         {
             var result = await _studentService.UpdateAsync(id, Mapper.Map<Student>(entity));
@@ -47,7 +55,7 @@ namespace Api.Controllers
             return result ? NoContent() : BadRequest();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteById(int id)
         {
             var result = await _studentService.DeleteByIdAsync(id);

@@ -15,10 +15,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.AddRepositories();
 builder.AddDbContext();
 builder.AddMapper();
+builder.AddCorsPolicy();
+
 builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
+
+app.UseCors(opt => opt.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

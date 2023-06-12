@@ -31,6 +31,14 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _professorService.GetAllAsync();
+
+            return Ok(Mapper.Map<IEnumerable<ProfessorDto>>(result));
+        }
+
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _professorService.GetByIdAsync(id);
@@ -46,15 +54,15 @@ namespace Api.Controllers
             return result == null ? BadRequest() : Ok(Mapper.Map<ProfessorDto>(result));
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update(int id, ProfessorDto entity)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update([FromRoute]int id, ProfessorDto entity)
         {
             var result = await _professorService.UpdateAsync(id, Mapper.Map<Professor>(entity));
 
             return result ? NoContent() : BadRequest();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _professorService.DeleteByIdAsync(id);

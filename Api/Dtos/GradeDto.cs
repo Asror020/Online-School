@@ -15,5 +15,10 @@ namespace Api.Dtos
         [Required]
         [Range(0, 100)]
         public byte Score { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        [MinLength(4)]
+        public string StudentFullName { get; set; }
     }
 }

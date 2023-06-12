@@ -18,6 +18,14 @@ namespace BLL.Services
             _userRepo = userRepo;
         }
 
+        public override async Task<IEnumerable<Student>> GetAllAsync()
+        {
+            return await Task.Run(() =>
+            {
+                return EntityRepository.Context.Students.Include(x => x.User).ToList();
+            });
+        }
+
         public override async Task<Student?> GetByIdAsync(int id)
         {
             return await Task.Run(() =>

@@ -33,6 +33,9 @@ namespace DAL.Migrations
                     b.Property<byte>("Score")
                         .HasColumnType("tinyint");
 
+                    b.Property<string>("StudentFullName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
 
@@ -92,6 +95,9 @@ namespace DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfessorFullName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProfessorId")

@@ -130,12 +130,14 @@ namespace Api.SeedData
                 {
                     Name = "Math",
                     ProfessorId = 1,
+                    ProfessorFullName = "Anora Anora",
                     StudentsList = "1,2,3,4,5,6,7"
                 },
                 new Subject
                 {
                     Name = "English",
                     ProfessorId = 2,
+                    ProfessorFullName = "Bobur Bobur",
                     StudentsList = "1,2,3,4,5,6,7"
                 }
             });
@@ -153,24 +155,28 @@ namespace Api.SeedData
                 {
                     SubjectName = "Math",
                     StudentId = 1,
+                    StudentFullName = "John Smith",
                     Score = 98,
                 },
                 new Grade
                 {
                     SubjectName = "English",
                     StudentId = 1,
+                    StudentFullName = "John Smith",
                     Score = 78
                 },
                 new Grade
                 {
                     SubjectName = "Math",
                     StudentId = 2,
+                    StudentFullName = "Bob Bob",
                     Score = 90,
                 },
                 new Grade
                 {
                     SubjectName = "English",
                     StudentId = 2,
+                    StudentFullName = "Bob Bob",
                     Score = 87
                 }
             });

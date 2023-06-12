@@ -52,5 +52,15 @@ namespace Api.Extensions
 
             return builder;
         }
+
+        public static WebApplicationBuilder AddCorsPolicy(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
+            return builder;
+        }
     }
 }

@@ -26,11 +26,19 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _subjectService.GetAllAsync();
+
+            return result != null ? Ok(Mapper.Map<IEnumerable<SubjectDto>>(result)) : NotFound();
+        }
+
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _subjectService.GetByIdAsync(id);
 
-            return result != null ? Ok(result) : NotFound();
+            return result != null ? Ok(Mapper.Map<SubjectDto>(result)) : NotFound();
         }
 
         [HttpPost]
@@ -38,10 +46,10 @@ namespace Api.Controllers
         {
             var result = await _subjectService.CreateAsync(Mapper.Map<Subject>(entity));
 
-            return result != null ? Ok(result) : NotFound();
+            return result != null ? Ok(Mapper.Map<SubjectDto>(result)) : NotFound();
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, SubjectDto entity)
         {
             var subject = await _subjectService.GetByIdAsync(id) ?? throw new EntryPointNotFoundException();
@@ -55,7 +63,7 @@ namespace Api.Controllers
             return result ? NoContent() : BadRequest();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _subjectService.DeleteByIdAsync(id);
